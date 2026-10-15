@@ -46,6 +46,20 @@ For an art/audio asset, replace its profile `path: null` with the relative path 
 
 The neutral handoff keeps the existing `mona.production-handoff.v1` identifier for metadata. The wrapper is a separate native `monix/project/2.0` project. Its scene/runtime references are null because it does not contain an ENGYN game. `OTHER` maps the neutral handoff without changing MONIX's schema.
 
+## Game cue contract (Two Covens)
+
+The implemented game repository owns the canonical rescue dialogue at `data/dialogue/rescue_cues.json`, in the game's own shape: a cue **list** with `next`/`choices` links, `setFlags` and `advanceStage`. `mona.py` consumes a different shape (a beat **dictionary** with one `effect` per beat and mandatory choices), and its production profile must live inside the `--game` directory, which the game repository's freeze forbids. `check_game_cues.py` bridges the two without ever writing into the game repository:
+
+```bash
+python3 tools/mona-production/check_game_cues.py check --game /path/to/World-of-Mona/games/two-covens
+python3 tools/mona-production/check_game_cues.py snapshot --game /path/to/World-of-Mona/games/two-covens [--pin cue_id]
+python3 tools/mona-production/check_game_cues.py emit-beats --game /path/to/World-of-Mona/games/two-covens --out /path/to/beats.json
+```
+
+`check` validates the game file against `two-covens.cues.json`, the cue contract committed next to this tool: the 20 cue ids in order, the four entry cues, five sequences, branch structure, quest-stage and flag vocabularies, SHA-256 hashes of every spoken line and choice label, and verbatim-pinned lines. A changed line fails the check — that is the point: writers, recorded voice takes (named `<cue_id>.ogg`/`.wav`) and the game cannot drift apart silently. After a deliberate editorial change, run `snapshot` to regenerate the contract; verbatim pins and vocabulary entries that only exist in game code are carried over, and a pinned line that changed blocks the snapshot. Dialogue text itself stays in the game repository — the contract stores hashes, except for explicitly pinned verbatim lines (currently `gate_02`).
+
+`emit-beats` converts the game file into the beat dictionary `mona.py` expects, for assembling a production-kit snapshot: a cue's `advanceStage` becomes effect `advance_stage:<QuestStage>`, and linear or terminal cues gain the single explicit choice the adapter requires. `choosesTactic` and `setFlags` are game-runtime detail and are not carried into review beats. Output must be a new file outside the game folder. A kit profile for the emitted beats uses entrypoints `recall_01`, `prisoner_01`, `warden_01`, `gate_01` and rescue segments requiring `advance_stage:ThePrisoner`, `advance_stage:TheDiversion`, `advance_stage:TheCrossing` and `advance_stage:Resolved` respectively.
+
 ## Repository integration
 
 The entire tool lives under `tools/mona-production/` in `kadiverstudio/MONIX-REPO`. The game, profile, raw media, generated review project and verification logs stay outside the repository. Tests use synthetic data, not Mǒna lore.

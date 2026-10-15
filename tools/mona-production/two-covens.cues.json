@@ -1,0 +1,284 @@
+{
+  "cues": [
+    {
+      "advance_stage": null,
+      "choices": null,
+      "id": "recall_01",
+      "next": "recall_02",
+      "sequence": "TheRecall",
+      "set_flags": [],
+      "speaker": "Narration",
+      "text_sha256": "79fa902799b67c711002d6f99fac01656a4b127ee5575e0ca683cb5442a54880"
+    },
+    {
+      "advance_stage": null,
+      "choices": null,
+      "id": "recall_02",
+      "next": "recall_03",
+      "sequence": "TheRecall",
+      "set_flags": [],
+      "speaker": "Handler",
+      "text_sha256": "0faacfe9cc0e51243d1b2b0704f39e045115084e43a1502ba312c53a0cee2f88"
+    },
+    {
+      "advance_stage": "ThePrisoner",
+      "choices": null,
+      "id": "recall_03",
+      "next": null,
+      "sequence": "TheRecall",
+      "set_flags": [
+        "recall.received"
+      ],
+      "speaker": "Vaeren",
+      "text_sha256": "475922e4f5d82039f118ff19453fc50691819c797afe584a29047f18def19dcb"
+    },
+    {
+      "advance_stage": null,
+      "choices": null,
+      "id": "prisoner_01",
+      "next": "prisoner_02",
+      "sequence": "ThePrisoner",
+      "set_flags": [],
+      "speaker": "Girl",
+      "text_sha256": "88fac2f608e27fa63d954aae91a6ace53c3a5e7681fbd29fa6a65610bc9d3a75"
+    },
+    {
+      "advance_stage": null,
+      "choices": [
+        {
+          "chooses_tactic": null,
+          "next": "prisoner_03",
+          "set_flags": [],
+          "text_sha256": "68eea5b88e0ab9ac5932d0d8edab43ae23cd82c00d62c11ee4f5af915cb63611"
+        },
+        {
+          "chooses_tactic": null,
+          "next": "prisoner_04",
+          "set_flags": [],
+          "text_sha256": "6edb4e24ff1564f22d57bfff3e12043305a96191c859f9f437446893607e05b9"
+        }
+      ],
+      "id": "prisoner_02",
+      "next": null,
+      "sequence": "ThePrisoner",
+      "set_flags": [],
+      "speaker": "Vaeren",
+      "text_sha256": "fd0a2f6de4d069cacfb5fe3bf9b255a40b9473c15f1dcedcdce56ffb540f05f2"
+    },
+    {
+      "advance_stage": null,
+      "choices": null,
+      "id": "prisoner_03",
+      "next": "prisoner_05",
+      "sequence": "ThePrisoner",
+      "set_flags": [],
+      "speaker": "Girl",
+      "text_sha256": "1737b69fe7a867daa9963b7eddeee1a7cbe9e66b733fca26d08f8566e87e191d"
+    },
+    {
+      "advance_stage": null,
+      "choices": null,
+      "id": "prisoner_04",
+      "next": "prisoner_05",
+      "sequence": "ThePrisoner",
+      "set_flags": [],
+      "speaker": "Girl",
+      "text_sha256": "2a9bf3631196260af48ac8ce83069305af26d916587e295dd6e7c9b71f7174e8"
+    },
+    {
+      "advance_stage": "TheDiversion",
+      "choices": null,
+      "id": "prisoner_05",
+      "next": null,
+      "sequence": "ThePrisoner",
+      "set_flags": [
+        "girl.promised"
+      ],
+      "speaker": "Vaeren",
+      "text_sha256": "181f5bd6d813cd17bec0178c48332fece7f0586c2b34375ca5de60a441618d96"
+    },
+    {
+      "advance_stage": null,
+      "choices": null,
+      "id": "warden_01",
+      "next": "warden_02",
+      "sequence": "TheDiversion",
+      "set_flags": [],
+      "speaker": "Warden",
+      "text_sha256": "9b1d34d8d2b91566157111017cff9015b22fde077e96157096a6f64129c23307"
+    },
+    {
+      "advance_stage": null,
+      "choices": [
+        {
+          "chooses_tactic": "SentinelSummons",
+          "next": "warden_a1",
+          "set_flags": [],
+          "text_sha256": "1f40dbdf5c87db82df417639ba2f5ba3f13634c09a4781182f9fbdc6a9238672"
+        },
+        {
+          "chooses_tactic": "NorthernBreach",
+          "next": "warden_b1",
+          "set_flags": [],
+          "text_sha256": "f212d7a85e75e0a968f9927cd1f9c18395995362fd98824e68d7aa24ba36efd8"
+        }
+      ],
+      "id": "warden_02",
+      "next": null,
+      "sequence": "TheDiversion",
+      "set_flags": [],
+      "speaker": "Vaeren",
+      "text_sha256": "c9f458645b3058f644df5221e12002c97c4513eacbdbc14d67e6b8b1384b2db2"
+    },
+    {
+      "advance_stage": null,
+      "choices": null,
+      "id": "warden_a1",
+      "next": "warden_a2",
+      "sequence": "TheDiversion",
+      "set_flags": [],
+      "speaker": "Warden",
+      "text_sha256": "3a23175a0370ba9993d512ee6426650e907a49c431c3fa947df95ea99f585a0e"
+    },
+    {
+      "advance_stage": "TheCrossing",
+      "choices": null,
+      "id": "warden_a2",
+      "next": null,
+      "sequence": "TheDiversion",
+      "set_flags": [
+        "warden.away"
+      ],
+      "speaker": "Narration",
+      "text_sha256": "daf56213ccc6308d0415ca93b5e7154cfccc450f0d005f92b664c0d1d7dc9401"
+    },
+    {
+      "advance_stage": null,
+      "choices": null,
+      "id": "warden_b1",
+      "next": "warden_b2",
+      "sequence": "TheDiversion",
+      "set_flags": [],
+      "speaker": "Warden",
+      "text_sha256": "c42180407baabf041aea47fe7682ae38692d89c02cb7f2cde5e54ca4e404be1d"
+    },
+    {
+      "advance_stage": "TheCrossing",
+      "choices": null,
+      "id": "warden_b2",
+      "next": null,
+      "sequence": "TheDiversion",
+      "set_flags": [
+        "warden.away"
+      ],
+      "speaker": "Narration",
+      "text_sha256": "ff5f39a83500e8a8bff3d828c2f3089f73b26c6ec2b85e6e9fee874c98d4fb6e"
+    },
+    {
+      "advance_stage": null,
+      "choices": null,
+      "id": "gate_01",
+      "next": "gate_02",
+      "sequence": "TheCrossing",
+      "set_flags": [],
+      "speaker": "Girl",
+      "text_sha256": "711b64ccef9f348e0def5f06c2e16459fb4566c6e88185e1e6e72cdb898d3c6e"
+    },
+    {
+      "advance_stage": null,
+      "choices": null,
+      "id": "gate_02",
+      "next": "gate_03",
+      "sequence": "TheCrossing",
+      "set_flags": [],
+      "speaker": "Vaeren",
+      "text_sha256": "6d5ad09a9f3768512f3142683fac2de15236cdfeb1cb5772f368b0f442603124"
+    },
+    {
+      "advance_stage": null,
+      "choices": null,
+      "id": "gate_03",
+      "next": "gate_04",
+      "sequence": "TheCrossing",
+      "set_flags": [],
+      "speaker": "Narration",
+      "text_sha256": "4b5ec1b76b13d83b7c0ca9e57ded0d24a3e6dc8a18c20988be114031889f7c8b"
+    },
+    {
+      "advance_stage": "DividedLoyalty",
+      "choices": null,
+      "id": "gate_04",
+      "next": "aftermath_01",
+      "sequence": "TheCrossing",
+      "set_flags": [
+        "gate.crossed"
+      ],
+      "speaker": "Narration",
+      "text_sha256": "b6e18fc2ec773ac8184f8aee67a6797c3b9766c97b14cffb2cf5f6c17a8ea331"
+    },
+    {
+      "advance_stage": null,
+      "choices": null,
+      "id": "aftermath_01",
+      "next": "aftermath_02",
+      "sequence": "DividedLoyalty",
+      "set_flags": [],
+      "speaker": "Girl",
+      "text_sha256": "908e43c524ca753fcbf80f5c27727896046720e80db2927927004757b1c02e68"
+    },
+    {
+      "advance_stage": "Resolved",
+      "choices": null,
+      "id": "aftermath_02",
+      "next": null,
+      "sequence": "DividedLoyalty",
+      "set_flags": [
+        "epilogue.done"
+      ],
+      "speaker": "Vaeren",
+      "text_sha256": "122bd2b9fc958fa8bccc0cda65d51bd71b984fa82a801ed52311a5e48f58e43c"
+    }
+  ],
+  "diversion_tactics": [
+    "NorthernBreach",
+    "SentinelSummons"
+  ],
+  "entrypoints": [
+    "recall_01",
+    "prisoner_01",
+    "warden_01",
+    "gate_01"
+  ],
+  "flag_glossary": [
+    "cell.opened",
+    "epilogue.done",
+    "evidence.northern_route",
+    "evidence.sentinel_denial",
+    "gate.crossed",
+    "girl.following",
+    "girl.promised",
+    "recall.received",
+    "warden.away"
+  ],
+  "game_dialogue_path": "data/dialogue/rescue_cues.json",
+  "quest_stages": [
+    "DividedLoyalty",
+    "Resolved",
+    "TheCrossing",
+    "TheDiversion",
+    "ThePrisoner",
+    "TheRecall"
+  ],
+  "schema": "mona.cue-contract.v1",
+  "script_id": "rescue",
+  "sequences": [
+    "TheRecall",
+    "ThePrisoner",
+    "TheDiversion",
+    "TheCrossing",
+    "DividedLoyalty"
+  ],
+  "verbatim_pins": {
+    "gate_02": "They can decide what to call me later. Cross."
+  }
+}
